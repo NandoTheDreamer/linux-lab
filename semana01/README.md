@@ -51,4 +51,4 @@ tree -L 1 /
 ## Recursos
 - Man pages : ‘ man ls ‘, ‘ man bash ‘
 - FHS ( Filesystem Hierarchy Standard )
-- GitHub : https :// github . com /TU - USUARIO / linux - lab
+- GitHub: https://github.com/NandoTheDreamer/linux-lab
