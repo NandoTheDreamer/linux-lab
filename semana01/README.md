@@ -45,10 +45,22 @@ ls -la
 pwd
 # Explorar con tree
 tree -L 1 /
-# Probar ejemplos
-# ( copiar comandos de ejemplos - practicos . md )
-‘‘‘
+## Probar ejemplos
+
+Para probar los comandos prácticos, copia y ejecútalos desde el archivo `ejemplos-practicos.md`.
+
+Ejemplo:
+
+```bash
+ls -la
+pwd
+cd /
+```
+
+---
+
 ## Recursos
-- Man pages : ‘ man ls ‘, ‘ man bash ‘
-- FHS ( Filesystem Hierarchy Standard )
+
+- Man pages: `man ls`, `man bash`
+- FHS (Filesystem Hierarchy Standard)
 - GitHub: https://github.com/NandoTheDreamer/linux-lab
