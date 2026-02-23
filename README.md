@@ -1,6 +1,6 @@
 # Linux Lab - Repositorio de Aprendizaje
 ## Estudiante
-** Nombre :** [ Tu Nombre ]
+** Nombre :** Carlos Fernando Flores Uscamaita
 ** Universidad :** Universidad Tecnica de Oruro
 ** Semestre :** I /2026
 ## Descripcion
@@ -60,13 +60,12 @@ semana02 /
 - Aprender administracion de sistemas
 - Construir portfolio en GitHub
 ## Tecnologias
-- ** OS :** [ Coloque su Sistema Operativo donde realizo el
-Capstone ]
+- ** OS :** [ Windows11 (no le digan a nadie :v ) ]
 - ** Shell :** Bash 5. x
 - ** VCS :** Git 2. x
 - ** Editor :** vim / nano
 - ** Hosting :** GitHub
 ## Contacto
-- Email : [ tu email ]
-- GitHub : https :// github . com /TU - USUARIO
-- LinkedIn : [ tu perfil ]
+- Email : carlosfernandofloresu@gmail.com
+- GitHub : https://github.com/NandoTheDreamer
+- LinkedIn : [ No tengo :'v ]
