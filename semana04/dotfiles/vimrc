@@ -1,0 +1,52 @@
+" ~/.vimrc - Configuracion de vim
+" Semana 4: Editores y Dotfiles
+
+" ---- Basico ----
+set nocompatible
+syntax on
+set encoding=utf-8
+
+" Apariencia
+set number
+set cursorline
+set showmode
+set ruler
+set laststatus=2
+
+"Indentacion
+set tabstop=4
+set shiftwidth=4
+set expandtab
+set autoindent
+set smartindent
+
+"Busqueda
+set incsearch
+set hlsearch
+set ignorecase
+set smartcase
+
+"Comportamiento
+set backspace=indent,eol,start
+set wrap
+set linebreak
+set scrolloff=5
+set wildmenu
+
+"Archivos
+set nobackup
+set noswapfile
+
+"Mapeos
+inoremap jj <Esc>
+
+"Guardar con ctrl+S
+nnoremap <C-s> :w<CR>
+inoremap <C-s> <Esc>:w<CR>a
+
+"Limpiar el resaltado con Esc
+nnoremap <Esc> :nohlsearch<CR>
+
+"Mover lineas completas con Alt+j y Alt+k
+nnoremap <A-j> :m .+1<CR>==
+nnoremap <A-k> :m .-2<CR>==
