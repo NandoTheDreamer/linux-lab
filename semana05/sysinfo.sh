@@ -13,6 +13,20 @@ readonly SEPARADOR="
 readonly SEPARADOR_SEC="
 ----------------------------------------"
 
+#===Seccion 1: Informacion general===
+seccion_general () {
+	echo "[INFORMACION DEL SISTEMA ]"
+	echo "$SEPARADOR_SEC"
+	printf "	%-18s %s\n" "Hostname:"		"$(hostname)"
+	printf "	%-18s %s\n" "Usuario:"		"$USER"
+	printf "	%-18s %s\n" "Sistema:"		"$(uname -s)"
+	printf "	%-18s %s\n" "Kernel:"		"$(uname -r)"
+	printf "	%-18s %s\n" "Arquitectura:"	"$(uname -m)"
+	printf "	%-18s %s\n" "Fecha/Hora:"	"$(date ’+%d/%m/%Y%H:%M:%S’)"
+	printf "	%-18s %s\n" "Encendido:"	"$(uptime -p)"
+	echo ""
+}
+
 #===Funcion de uso===
 
 uso() {
@@ -35,7 +49,7 @@ uso() {
 	exit 2
 }
 
-#===Procesarargumentos===
+#===Procesar argumentos===
 MODO="${1:-all}"
 
 case "$MODO" in
@@ -58,3 +72,8 @@ printf "  REPORTEDELSISTEMA - sysinfo.sh v%s\n" "
 	$VERSION"
 echo "$SEPARADOR"
 echo ""
+
+===Ejecutar segun el modo===
+if [ "$MODO" = "all" ]; then
+	seccion_general
+fi
