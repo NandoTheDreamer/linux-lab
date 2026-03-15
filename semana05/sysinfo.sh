@@ -13,20 +13,6 @@ readonly SEPARADOR="
 readonly SEPARADOR_SEC="
 ----------------------------------------"
 
-#===Seccion 1: Informacion general===
-seccion_general () {
-	echo "[INFORMACION DEL SISTEMA ]"
-	echo "$SEPARADOR_SEC"
-	printf "	%-18s %s\n" "Hostname:"		"$(hostname)"
-	printf "	%-18s %s\n" "Usuario:"		"$USER"
-	printf "	%-18s %s\n" "Sistema:"		"$(uname -s)"
-	printf "	%-18s %s\n" "Kernel:"		"$(uname -r)"
-	printf "	%-18s %s\n" "Arquitectura:"	"$(uname -m)"
-	printf "	%-18s %s\n" "Fecha/Hora:"	"$(date ’+%d/%m/%Y%H:%M:%S’)"
-	printf "	%-18s %s\n" "Encendido:"	"$(uptime -p)"
-	echo ""
-}
-
 #===Funcion de uso===
 
 uso() {
@@ -73,7 +59,55 @@ printf "  REPORTEDELSISTEMA - sysinfo.sh v%s\n" "
 echo "$SEPARADOR"
 echo ""
 
-===Ejecutar segun el modo===
-if [ "$MODO" = "all" ]; then
-	seccion_general
-fi
+#===Seccion 1: Informacion general===
+seccion_general () {
+        echo "[INFORMACION DEL SISTEMA ]"
+        echo "$SEPARADOR_SEC"
+        printf "        %-18s %s\n" "Hostname:"         "$(hostname)"
+        printf "        %-18s %s\n" "Usuario:"          "$USER"
+        printf "        %-18s %s\n" "Sistema:"          "$(uname -s)"
+        printf "        %-18s %s\n" "Kernel:"           "$(uname -r)"
+        printf "        %-18s %s\n" "Arquitectura:"     "$(uname -m)"
+        printf "        %-18s %s\n" "Fecha/Hora:"       "$(date ’+%d/%m/%Y%H:%M:%S’)"
+        printf "        %-18s %s\n" "Encendido:"        "$(uptime -p)"
+        echo ""
+}
+
+#===Seccion 2: CPU===
+seccion_cpu() {
+	echo "[ CPU ]"
+	echo "$SEPARADOR_SEC"
+	nucleos=$(nproc)
+	carga=$(uptime | awk -F’loadaverage:’ ’{print $2}’ \ | awk ’{print $1}’ | tr -d ’,’)
+	printf " %-18s %s\n" "Nucleos:"			"$nucleos"
+	printf " %-18s %s\n" "Carga (1min):"	"$carga"
+	echo ""
+}
+
+#===Seccin 3: Memoria RAM===
+seccion_memoria() {
+	echo "[ MEMORIA RAM ]"
+	echo "$SEPARADOR_SEC"
+	mem_total=$(free -h | awk ’/^Mem:/ {print$2}’)
+	mem_usado=$(free -h | awk ’/^Mem:/ {print$3}’)
+	mem_libre=$(free -h | awk ’/^Mem:/ {print$4}’)
+	swap_total=$(free -h | awk ’/^Swap:/ {print$2}’)
+	swap_usado=$(free -h | awk ’/^Swap:/ {print$3}’)
+	printf " %-18s %s\n" "RAM total:"	"$mem_total"
+	printf " %-18s %s\n" "RAM usada:"	"$mem_usado"
+	printf " %-18s %s\n" "RAM libre:"	"$mem_libre"
+	printf " %-18s %s\n" "Swap total:"	"$swap_total"
+	printf " %-18s %s\n" "Swap usado:"	"$swap_usado"
+	echo ""
+}
+
+#===Ejecutar segun el modo===
+case "$MODO" in
+	all)
+		seccion_general
+		seccion_cpu
+		seccion_memoria
+		;;
+	cpu ) seccion_cpu ;;
+	mem ) seccion_memoria ;;
+esac
