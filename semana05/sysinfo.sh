@@ -111,6 +111,23 @@ seccion_disco() {
 	echo ""
 }
 
+#===Seccion 5: Procesos===
+seccion_procesos() {
+	echo "[ PROCESOS ]"
+	echo "$SEPARADOR_SEC"
+	total_proc=$(ps aux --no-headers | wc -l)
+	mis_proc=$(ps -u "$USER" --no-headers 2>/dev/null | wc -l)
+	printf "%-20s %s\n" "Total en sistema:" "$total_proc"
+	printf "%-20s %s\n" "De $USER:"			"$mis_proc"
+	echo ""
+	echo "Top 5 por consumo de CPU:"
+	printf "%-8s %-5s %-5s %s\n" "PID" "%CPU" "%MEM" "COMANDO"
+	echo " $(printf '%.0s-' {1..40})"
+	ps aux --sort=-%cpu --no-headers | head -5 | \
+		awk '{printf "%-8s %-5s %-5s %s\n", $2, $3, $4, $11}'
+	echo ""
+}
+
 #===Ejecutar segun el modo===
 case "$MODO" in
 	all)
@@ -118,7 +135,9 @@ case "$MODO" in
 		seccion_cpu
 		seccion_memoria
 		seccion_disco
+		seccion_procesos
 		;;
+	proc) seccion_procesos ;;
 	disk) seccion_disco ;;
 	cpu) seccion_cpu ;;
 	mem) seccion_memoria ;;
