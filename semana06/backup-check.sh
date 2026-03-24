@@ -46,9 +46,9 @@ log() {
 	printf "[%s] [%-7s] %s\n" "$timestamp" "$nivel" "$mensaje" \ | tee -a "$LOGFILE"
 
 	#Actualizar el estado global si el nivel es grave
-	if [ "$nivel" = "ERROR"] && [ "$estado_global" != "ERROR"]; then
+	if [ "$nivel" = "ERROR" ] && [ "$estado_global" != "ERROR" ]; then
 		estado_global="ERROR"
-	elif [ "$nivel" = "WARNING"] && [ "$estado_global" = "OK"]; then
+	elif [ "$nivel" = "WARNING" ] && [ "$estado_global" = "OK" ]; then
 		estado_global="WARNING"
 	fi
 }
