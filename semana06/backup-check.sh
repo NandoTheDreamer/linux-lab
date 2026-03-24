@@ -8,11 +8,11 @@
 
 #===Constantes configurables===
 readonly VERSION="1.0.0"
-readonly DIR_BACKUP="${1: -/backup}"
+readonly DIR_BACKUP="${1:-/backup}"
 readonly DIR_LOGS="$(dirname "$0")/logs"
-readonly LOGFILE="$DIR_LOGS/backup-check-$(date+%Y%m%d).log"
+readonly LOGFILE="$DIR_LOGS/backup-check-$(date +%Y%m%d).log"
 readonly MAX_HORAS_SIN_BACKUP=24	#alertar si el backup es más viejo
-readonly MIN_TAMANIO_MB=10			#alertar si el backup es más pequeño
+readonly MIN_TAMANIO_MB=10		#alertar si el backup es más pequeño
 readonly MAX_TAMANIO_MB=50000		#alertar si el backup es muy grande
 
 #===Variables de estado global===
@@ -23,7 +23,7 @@ uso() {
 	echo "Uso: $0 [directorio_backup]"
 	echo ""
 	echo "	directorio_backup	Directorio a verificar"
-	echo "						(por defecto: /backup)"
+	echo "				(por defecto: /backup)"
 	echo ""
 	echo "Opciones:"
 	echo "	--version	Versión del script"
