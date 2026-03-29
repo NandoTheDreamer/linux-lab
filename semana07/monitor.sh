@@ -51,6 +51,25 @@ registrar() {
 	printf "[%s] [%-7s] %s\n" \ "$ts" "$nivel" "$mensaje" | tee -a "$LOGFILE"
 }
 
+resumen_log() {
+echo ""
+echo "========================================="
+echo "  RESUMEN DE LA SESION"
+echo "========================================="
+local total alertas
+total=$(grep -c "\[INFO   \]" "$LOGFILE" 2>/dev/null \ || echo 0)
+alertas=$(grep -c "\[ALERTA \]" "$LOGFILE" 2>/dev/null \ || echo 0)
+printf " %-25s %d\n" "Comprobaciones totales:" "$total"
+printf " %-25s %d\n" "Alertas emitidas:"	"$alertas"
+echo ""
+echo " Ultimas entradas:"
+# Leer el log con while y mostrar las ultimas 3 lineas
+tail -3 "$LOGFILE" | while IFS= read -r linea; do
+	echo "	$linea"
+done
+echo "========================================="
+}
+
 # Procesar argumentos con while
 while [ $# -gt 0 ]; do
 	case "$1" in
@@ -96,3 +115,6 @@ while true; do
 			"RAM al ${ram}%	(umbral: ${UMBRAL_RAM}%)"
 	sleep "$INTERVALO"
 done
+
+resumen_log
+registrar "INFO" \ "Monitor finalizado tras $((iteracion-1)) iteraciones."
