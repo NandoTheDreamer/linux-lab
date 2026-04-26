@@ -25,3 +25,6 @@ secrets . txt
 test- data /
 scratch /
 temp /semana07/monitor.log
+reportes/*.txt
+reportes/*.txt
+reportes/.gitkeep
