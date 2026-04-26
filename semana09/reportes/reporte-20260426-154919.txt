@@ -1,0 +1,23 @@
+========================================
+REPORTE DE PROCESOS - 2026-04-26 15:49:19
+Sistema: usuario1linux-VirtualBox  |  Usuario: usuario1linux
+========================================
+
+--- Top 5 procesos por CPU ---
+  usuario+ PID:2659     CPU:  150%  MEM:  0.2%ps
+  usuario+ PID:1686     CPU:  6.3%  MEM: 12.8%cinnamon
+  root     PID:1158     CPU:  2.5%  MEM:  8.2%/usr/lib/xorg/Xorg
+  usuario+ PID:1379     CPU:  1.0%  MEM:  0.1%/usr/bin/VBoxClient
+  systemd+ PID:457      CPU:  1.0%  MEM:  0.6%/usr/lib/systemd/systemd-resolved
+
+--- Top 5 procesos por MEM ---
+  usuario+  PID:2110   CPU:  1.0% MEM: 22.0%/usr/bin/xreader
+  usuario+  PID:1686   CPU:  6.3% MEM: 12.8%cinnamon
+  root      PID:1158   CPU:  2.5% MEM:  8.2%/usr/lib/xorg/Xorg
+  usuario+  PID:2024   CPU:  0.0% MEM:  4.8%mintUpdate
+  usuario+  PID:1492   CPU:  0.0% MEM:  3.9%/usr/bin/csd-background
+
+--- Procesos zombie ---
+  Ninguno detectado
+
+--- Verificando procesos vigilados ---
