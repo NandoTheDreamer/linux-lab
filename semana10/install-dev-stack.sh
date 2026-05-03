@@ -171,8 +171,8 @@ configurar_git_global() {
 
 # === RESUMEN FINAL ===
 mostrar_resumen() {
-	localtotal_nuevo=${#PAQUETES_INSTALADOS[@]}
-	localtotal_omitido=${#PAQUETES_OMITIDOS[@]}
+	local total_nuevo=${#PAQUETES_INSTALADOS[@]}
+	local total_omitido=${#PAQUETES_OMITIDOS[@]}
 	echo ""
 	echo "=============================="
 	echo "  RESUMEN DE INSTALACION"
@@ -182,7 +182,7 @@ mostrar_resumen() {
 	echo "  Errores           : $ERRORES"
 	echo "=============================="
 
-	if[ $ERRORES -eq 0 ]; then
+	if [ $ERRORES -eq 0 ]; then
 		log OK "Instalacion completada exitosamente"
 		echo ""
 		echo "Ejecuta: ./verify-install.sh"
@@ -200,7 +200,7 @@ main() {
 	echo "  DEV STACK INSTALLER v$VERSION"
 	echo "============================="
 	echo ""
-	if[ "$EUID" -ne 0 ]; then
+	if [ "$EUID" -ne 0 ]; then
 		log ERROR "Este script requiere privilegios root."
 		log INFO  "Ejecuta: sudo $0"
 		exit1
@@ -211,3 +211,4 @@ main() {
 	mostrar_resumen
 }
 main "$@"
+
