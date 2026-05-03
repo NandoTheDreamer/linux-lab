@@ -1,0 +1,17 @@
+Dev Stack Installer v1.0.0
+Iniciado: 2026-05-03 12:13:27
+---
+[2026-05-03 12:13:27] [STEP] Detectando sistema operativo
+[2026-05-03 12:13:27] [OK] OS soportado: Linux Mint 22.1
+[2026-05-03 12:13:27] [INFO] OS: linuxmint | Version: 22.1
+[2026-05-03 12:13:27] [STEP] Actualizando lista de paquetes
+
+WARNING: apt does not have a stable CLI interface. Use with caution in scripts.
+
+Se pueden actualizar 562 paquetes. Ejecute «apt list --upgradable» para verlos.
+[2026-05-03 12:13:27] [OK] Lista de paquetes actualizada
+[2026-05-03 12:13:27] [STEP] Instalando herramientas esenciales
+[2026-05-03 12:13:27] [OK] Git (control de versiones) ya instalado (v1:2.43.0-1ubuntu7.3) -- omitido
+[2026-05-03 12:13:27] [OK] curl (transferencia HTTP) ya instalado (v8.5.0-2ubuntu10.6) -- omitido
+[2026-05-03 12:13:27] [OK] wget (descarga de archivos) ya instalado (v1.21.4-1ubuntu4.1) -- omitido
+[2026-05-03 12:13:27] [OK] Vim (editor de texto) ya instalado (v2:9.1.0016-1ubuntu7.9) -- omitido
