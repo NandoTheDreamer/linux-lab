@@ -6,7 +6,7 @@
 set -euo pipefail
 
 # === CONSTANTES ===
-readonly VERSION="1.0.0"
+readonly SCRIPT_VERSION="1.0.0"
 readonly LOG_FILE="install.log"
 readonly TIMESTAMP=$(date '+%Y-%m-%d %H:%M:%S')
 
@@ -57,7 +57,7 @@ log () {
 	esac
 }
 
-echo "Dev Stack Installer v$VERSION" > "$LOG_FILE"
+echo "Dev Stack Installer v$SCRIPT_VERSION" > "$LOG_FILE"
 echo "Iniciado: $TIMESTAMP" >> "$LOG_FILE"
 echo "---" >> "$LOG_FILE"
 
@@ -197,13 +197,13 @@ mostrar_resumen() {
 main() {
 	echo ""
 	echo "============================="
-	echo "  DEV STACK INSTALLER v$VERSION"
+	echo "  DEV STACK INSTALLER v$SCRIPT_VERSION"
 	echo "============================="
 	echo ""
 	if [ "$EUID" -ne 0 ]; then
 		log ERROR "Este script requiere privilegios root."
 		log INFO  "Ejecuta: sudo $0"
-		exit1
+		exit 1
 	fi
 	detectar_os
 	instalar_dev_stack
